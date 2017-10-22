@@ -12,7 +12,7 @@ public class DealerWinCondition implements IWinCondition {
 		    } else if (dealer.CalcScore() > maxScore) {
 		      return false;
 		    }
-		    return dealer.CalcScore() >= player.CalcScore();
+		return dealer.CalcScore() >= player.CalcScore();
 	}
 
 }
