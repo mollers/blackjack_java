@@ -10,18 +10,17 @@ class InternationalNewGameStrategy implements INewGameStrategy {
   public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
     Card c;
   
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_player.DealCard(c);
-  
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_dealer.DealCard(c);
-  
-    c = a_deck.GetCard();
-    c.Show(true);
-    a_player.DealCard(c);
+    GetShowDealCard(a_deck, a_player, true);
+    GetShowDealCard(a_deck, a_dealer, true);
+    GetShowDealCard(a_deck, a_player, true);
   
     return true;
+  }
+  
+  private void GetShowDealCard(Deck a_deck, Player a_player, boolean b) {
+		Card c;
+		c = a_deck.GetCard();
+	    c.Show(b);
+	    a_player.DealCard(c);
   }
 }
