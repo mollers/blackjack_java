@@ -44,7 +44,6 @@ public class PlayGame implements Observer {
 
 	}
 	private void printHands () {
-		System.out.println("--------------------------------------------------------");
 		a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
 		a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 	}
@@ -52,7 +51,7 @@ public class PlayGame implements Observer {
 	@Override
 	public void update() {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
