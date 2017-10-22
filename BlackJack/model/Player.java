@@ -8,10 +8,10 @@ public class Player extends Observable{
 
   private List<Card> m_hand;
   protected final int g_maxScore = 21;
+  private Observer observer;
 
   public Player()
   {
-  
     m_hand = new LinkedList<Card>();
   }
   
@@ -37,6 +37,7 @@ public class Player extends Observable{
     {
       c.Show(true);
     }
+    this.notifyObservers();
   }
   
   public int CalcScore()
@@ -73,6 +74,9 @@ public class Player extends Observable{
     return score;
   }
   public void notifyObservers() {
-	  System.out.println("HEJ");
+	  this.observer.update();
+  }
+  public void setObserver(Observer o){
+	  this.observer = o;
   }
 }

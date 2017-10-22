@@ -57,6 +57,11 @@ public class Game {
   {
     return m_player.CalcScore();
   }
-    
+  public Player getDealer(){
+	  return this.m_dealer;
+  }
+  public Player getPlayer(){
+	  return this.m_player;
+  }
   
 }
