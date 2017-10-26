@@ -1,8 +1,10 @@
 package BlackJack.view;
 
+import java.util.Scanner;
+
 public class SimpleView implements IView 
 {
-
+	Scanner scan = new Scanner(System.in);
 	public void DisplayWelcomeMessage()
 	{
 		System.out.println("Hello Black Jack World");
@@ -11,16 +13,8 @@ public class SimpleView implements IView
 
 	public int GetInput()
 	{
-		try {
-			int c = System.in.read();
-			while (c == '\r' || c =='\n') {
-				c = System.in.read();
-			}
-			return c;
-		} catch (java.io.IOException e) {
-			System.out.println("" + e);
-			return 0;
-		}
+		char c = scan.nextLine().charAt(0);
+		return c;
 	}
 
 	public void DisplayCard(BlackJack.model.Card a_card)
@@ -63,5 +57,9 @@ public class SimpleView implements IView
 			System.out.println("You Won!");
 		}
 
+	}
+
+	public char[] getMenuOptions() {
+		return new char[] {'p', 'h', 's', 'q'};
 	}
 }

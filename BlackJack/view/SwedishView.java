@@ -15,9 +15,9 @@ public class SwedishView implements IView
         public int GetInput()
         {
           try {
-            int c = System.in.read();
+            char c = (char) System.in.read();
             while (c == '\r' || c =='\n') {
-              c = System.in.read();
+              c = (char) System.in.read();
             }
             return c;
           } catch (java.io.IOException e) {
@@ -72,4 +72,8 @@ public class SwedishView implements IView
             System.out.println("Poäng: " + a_score);
             System.out.println("");
         }
+
+		public char[] getMenuOptions() {
+			return new char[] {'p', 'h', 's', 'q'};
+		}
     }

@@ -24,22 +24,23 @@ public class PlayGame implements Observer {
 			a_view.DisplayGameOver(a_game.IsDealerWinner());
 		}
 
+		char[] menuOptions = a_view.getMenuOptions();
 		int input = a_view.GetInput();
 
-		if (input == 'p')
+		if (input == menuOptions[0])
 		{
 			a_game.NewGame();
 		}
-		else if (input == 'h')
+		else if (input == menuOptions[1])
 		{
 			a_game.Hit();
 		}
-		else if (input == 's')
+		else if (input == menuOptions[2])
 		{
 			a_game.Stand();
 		}
 
-		return input != 'q';
+		return input != menuOptions[3];
 
 
 	}
