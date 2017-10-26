@@ -14,11 +14,7 @@ public class Dealer extends Player {
     m_newGameRule = a_rulesFactory.GetNewGameRule();
     m_hitRule = a_rulesFactory.GetHitRule();
     m_winRule = a_rulesFactory.GetWinCondition();
-    
-    /*for(Card c : m_deck.GetCards()) {
-      c.Show(true);
-      System.out.println("" + c.GetValue() + " of " + c.GetColor());
-    }    */
+
   }
   
   public void Stand() {
