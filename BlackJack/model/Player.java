@@ -42,24 +42,13 @@ public class Player extends Observable{
   
   public int CalcScore()
   {
-    // the number of scores is dependant on the number of scorable values
-    // as it seems there is no way to do this check at compile time in java ?!
-    // cardScores[13] = {...};
-    int cardScores[] = {
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11
-    };
-    assert (cardScores.length == Card.Value.Count.ordinal()) : "Card Scores array size does not match number of card values";
-  
-    
     int score = 0;
-
     for(Card c : GetHand()) {
         if (c.GetValue() != Card.Value.Hidden)
         {
-            score += cardScores[c.GetValue().ordinal()];
+        	score += getCardIntValue(c);
         }
     }
-
     if (score > g_maxScore)
     {
         for(Card c : GetHand())
@@ -72,6 +61,14 @@ public class Player extends Observable{
     }
 
     return score;
+  }
+  public int getCardIntValue (Card c) {
+	   int cardScores[] = {
+        2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11
+    };
+    assert (cardScores.length == Card.Value.Count.ordinal()) : "Card Scores array size does not match number of card values";
+    
+    return cardScores[c.GetValue().ordinal()];
   }
   public void notifyObservers() {
 	  this.observer.update();
